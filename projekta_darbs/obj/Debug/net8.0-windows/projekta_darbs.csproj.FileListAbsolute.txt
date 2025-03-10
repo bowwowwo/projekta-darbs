@@ -1,0 +1,17 @@
+C:\Users\psayt\source\repos\projekta_darbs\bin\Debug\net8.0-windows\projekta_darbs.exe
+C:\Users\psayt\source\repos\projekta_darbs\bin\Debug\net8.0-windows\projekta_darbs.deps.json
+C:\Users\psayt\source\repos\projekta_darbs\bin\Debug\net8.0-windows\projekta_darbs.runtimeconfig.json
+C:\Users\psayt\source\repos\projekta_darbs\bin\Debug\net8.0-windows\projekta_darbs.dll
+C:\Users\psayt\source\repos\projekta_darbs\bin\Debug\net8.0-windows\projekta_darbs.pdb
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.csproj.GenerateResource.cache
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.AssemblyInfoInputs.cache
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.AssemblyInfo.cs
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.csproj.CoreCompileInputs.cache
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.sourcelink.json
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.dll
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\refint\projekta_darbs.dll
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.pdb
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.genruntimeconfig.cache
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\ref\projekta_darbs.dll
+C:\Users\psayt\source\repos\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.Login.resources
