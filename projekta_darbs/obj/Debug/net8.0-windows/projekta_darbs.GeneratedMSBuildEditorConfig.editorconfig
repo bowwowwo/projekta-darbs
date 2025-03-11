@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = projekta_darbs
-build_property.ProjectDir = C:\Users\psayt\source\repos\projekta_darbs\
+build_property.ProjectDir = C:\Users\psayt\Source\Repos\projekta-darbs\projekta_darbs\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

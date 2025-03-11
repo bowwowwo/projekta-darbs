@@ -28,132 +28,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
             label2 = new Label();
-            groupBox1 = new GroupBox();
-            label5 = new Label();
-            label4 = new Label();
-            button1 = new Button();
-            label3 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             label1 = new Label();
-            groupBox1.SuspendLayout();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            label3 = new Label();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            label4 = new Label();
             SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(56, 87);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 23);
-            textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(56, 139);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 23);
-            textBox2.TabIndex = 1;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(56, 121);
+            label2.BackColor = SystemColors.ButtonFace;
+            label2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label2.Location = new Point(100, 188);
             label2.Name = "label2";
-            label2.Size = new Size(66, 15);
+            label2.Size = new Size(80, 17);
             label2.TabIndex = 3;
             label2.Text = "Tava parole";
             // 
-            // groupBox1
+            // textBox2
             // 
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.BackColor = Color.FromArgb(255, 167, 37);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(57, 21);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(311, 346);
-            groupBox1.TabIndex = 4;
-            groupBox1.TabStop = false;
+            textBox2.Anchor = AnchorStyles.None;
+            textBox2.Location = new Point(100, 206);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(240, 23);
+            textBox2.TabIndex = 1;
             // 
-            // label5
+            // textBox1
             // 
-            label5.AutoSize = true;
-            label5.BackColor = SystemColors.HighlightText;
-            label5.ForeColor = SystemColors.HotTrack;
-            label5.Location = new Point(56, 243);
-            label5.Name = "label5";
-            label5.Size = new Size(148, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Aizmirsi paroli vai e-pastu?";
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.Location = new Point(100, 152);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(240, 23);
+            textBox1.TabIndex = 0;
             // 
-            // label4
+            // label1
             // 
-            label4.AutoSize = true;
-            label4.BackColor = SystemColors.HighlightText;
-            label4.ForeColor = SystemColors.HotTrack;
-            label4.Location = new Point(56, 214);
-            label4.Name = "label4";
-            label4.Size = new Size(85, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Neesi lietotājs?";
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ButtonFace;
+            label1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label1.Location = new Point(100, 134);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 17);
+            label1.TabIndex = 4;
+            label1.Text = "Tavs e-pasts";
             // 
-            // button1
+            // materialLabel1
             // 
-            button1.Location = new Point(173, 182);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Ienākt";
-            button1.UseVisualStyleBackColor = true;
+            materialLabel1.AutoSize = true;
+            materialLabel1.BackColor = SystemColors.ButtonFace;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.ForeColor = SystemColors.ControlText;
+            materialLabel1.Location = new Point(115, 83);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(211, 19);
+            materialLabel1.TabIndex = 9;
+            materialLabel1.Text = "Atslēgu izsniegšanas sistēma";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(78, 19);
+            label3.BackColor = SystemColors.ButtonFace;
+            label3.Cursor = Cursors.Hand;
+            label3.Font = new Font("Roboto", 9F);
+            label3.Location = new Point(100, 294);
             label3.Name = "label3";
-            label3.Size = new Size(158, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Atslēgu izsniegšanas sistēma";
+            label3.Size = new Size(89, 14);
+            label3.TabIndex = 12;
+            label3.Text = "Neesi lietotājs?";
+            label3.Click += label3_Click;
             // 
-            // label1
+            // materialButton1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(56, 69);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Tavs e-pasts";
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Cursor = Cursors.Hand;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(268, 254);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(72, 36);
+            materialButton1.TabIndex = 13;
+            materialButton1.Text = "Ienākt";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.ButtonFace;
+            label4.Font = new Font("Roboto", 9F);
+            label4.Location = new Point(100, 330);
+            label4.Name = "label4";
+            label4.Size = new Size(153, 14);
+            label4.TabIndex = 14;
+            label4.Text = "Aizmirsi paroli vai e-pastu?";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(106, 156, 137);
-            ClientSize = new Size(434, 421);
-            Controls.Add(groupBox1);
+            ClientSize = new Size(440, 421);
+            Controls.Add(label4);
+            Controls.Add(materialButton1);
+            Controls.Add(label3);
+            Controls.Add(materialLabel1);
+            Controls.Add(textBox1);
+            Controls.Add(textBox2);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            DrawerBackgroundWithAccent = true;
             Name = "Login";
-            Text = "Login";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Text = "Ielogoties";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
         private Label label2;
-        private GroupBox groupBox1;
+        private TextBox textBox2;
+        private TextBox textBox1;
         private Label label1;
-        private Button button1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private Label label3;
-        private Label label5;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
         private Label label4;
     }
 }

@@ -1,11 +1,44 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "MaterialSkin.2/2.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/MaterialSkin.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/MaterialSkin.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MaterialSkin.2/2.3.1": {
+      "sha512": "w2vFxLNk4InCDU7pXDfBqPfv55HhBtuu8HRfEqQpeS3sNTS1pUzDs/hS0b5JW2/tKvt+P1of9OINP8a9omWDBg==",
+      "type": "package",
+      "path": "materialskin.2/2.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MaterialSkin.dll",
+        "lib/net461/MaterialSkin.dll",
+        "lib/net48/MaterialSkin.dll",
+        "lib/net5.0-windows7.0/MaterialSkin.dll",
+        "materialskin.2.2.3.1.nupkg.sha512",
+        "materialskin.2.nuspec",
+        "nugetIcon.png"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "MaterialSkin.2 >= 2.3.1"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\psayt\\.nuget\\packages\\": {},
@@ -14,11 +47,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj",
+      "projectUniqueName": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
       "projectName": "projekta_darbs",
-      "projectPath": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj",
+      "projectPath": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
       "packagesPath": "C:\\Users\\psayt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\obj\\",
+      "outputPath": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -56,6 +89,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "MaterialSkin.2": {
+            "target": "Package",
+            "version": "[2.3.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

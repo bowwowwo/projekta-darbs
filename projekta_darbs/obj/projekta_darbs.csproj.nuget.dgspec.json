@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj": {}
+    "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj": {
+    "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj",
+        "projectUniqueName": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
         "projectName": "projekta_darbs",
-        "projectPath": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\projekta_darbs.csproj",
+        "projectPath": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
         "packagesPath": "C:\\Users\\psayt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\psayt\\source\\repos\\projekta_darbs\\obj\\",
+        "outputPath": "C:\\Users\\psayt\\Source\\Repos\\projekta-darbs\\projekta_darbs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "MaterialSkin.2": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
