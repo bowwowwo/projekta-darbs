@@ -41,7 +41,12 @@ namespace projekta_darbs
                 }
                 else
                 {
-                    string connectionString = "data source = C:\\Users\\arnolds\\source\repos\\projekta-darbs\\projekta_darbs\\db\\prog2atslgisnsys.db";
+                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
+                    string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
+
+                    string connectionString = @"data source =" + dbFilePath;
+                    //MessageBox.Show(connectionString);
 
                     using (SQLiteConnection con = new SQLiteConnection(connectionString))
                     {
@@ -76,6 +81,5 @@ namespace projekta_darbs
 
             this.Hide(); // * neaizver login tapec vajag pec tam atgriezties
         }
-
     }
 }

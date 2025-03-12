@@ -1246,23 +1246,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\arnolds\\.nuget\\packages\\": {},
+    "C:\\Users\\psayt\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arnolds\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
+      "projectUniqueName": "C:\\Users\\psayt\\Desktop\\serber2\\projekta-darbs1\\projekta_darbs\\projekta_darbs.csproj",
       "projectName": "projekta_darbs",
-      "projectPath": "C:\\Users\\arnolds\\Source\\Repos\\projekta-darbs\\projekta_darbs\\projekta_darbs.csproj",
-      "packagesPath": "C:\\Users\\arnolds\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arnolds\\Source\\Repos\\projekta-darbs\\projekta_darbs\\obj\\",
+      "projectPath": "C:\\Users\\psayt\\Desktop\\serber2\\projekta-darbs1\\projekta_darbs\\projekta_darbs.csproj",
+      "packagesPath": "C:\\Users\\psayt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\psayt\\Desktop\\serber2\\projekta-darbs1\\projekta_darbs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\arnolds\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\psayt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1271,6 +1271,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1288,8 +1289,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -1327,7 +1327,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
