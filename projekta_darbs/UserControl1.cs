@@ -14,7 +14,7 @@ namespace projekta_darbs
     {
         public UserControl1()
         {
-            InitializeComponent();
+         
         }
     }
 }

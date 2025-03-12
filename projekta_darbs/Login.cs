@@ -1,6 +1,7 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Data.SQLite;
 
 namespace projekta_darbs
 {
@@ -40,7 +41,26 @@ namespace projekta_darbs
                 }
                 else
                 {
-                    // ja ir datubazee tad lauj ieiet
+                    string connectionString = "data source = C:\\Users\\arnolds\\source\repos\\projekta-darbs\\projekta_darbs\\db\\prog2atslgisnsys.db";
+
+                    using (SQLiteConnection con = new SQLiteConnection(connectionString))
+                    {
+                        con.Open();
+                        string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
+
+                        using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@Email", email);
+                            cmd.Parameters.AddWithValue("@Password", password);
+
+                            int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            if (count > 0)
+                                MessageBox.Show("Veiksmīga pieteikšanās!");
+                            else
+                                MessageBox.Show("Nepareizs e-pasts vai parole!");
+                        }
+                    }
                 }
             }
             catch (Exception ex)

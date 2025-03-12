@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\projekta_darbs"
   ],
-  "SelectedNode": "\\projekta_darbs.sln",
+  "SelectedNode": "\\projekta_darbs\\Login.cs",
   "PreviewInSolutionExplorer": false
 }
