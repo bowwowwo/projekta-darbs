@@ -72,3 +72,6 @@ C:\Users\arnolds\source\repos\projekta-darbs\projekta_darbs\bin\Debug\net8.0-win
 C:\Users\arnolds\source\repos\projekta-darbs\projekta_darbs\obj\Debug\net8.0-windows\projekta.7B59268F.Up2Date
 C:\Users\arnolds\source\repos\projekta-darbs\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.genruntimeconfig.cache
 C:\Users\arnolds\source\repos\projekta-darbs\projekta_darbs\obj\Debug\net8.0-windows\ref\projekta_darbs.dll
+C:\Users\psayt\Desktop\serber2\projekta-darbs\projekta-darbs(autistuversija)\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.dll
+C:\Users\psayt\Desktop\serber2\projekta-darbs\projekta-darbs(autistuversija)\projekta_darbs\obj\Debug\net8.0-windows\refint\projekta_darbs.dll
+C:\Users\psayt\Desktop\serber2\projekta-darbs\projekta-darbs(autistuversija)\projekta_darbs\obj\Debug\net8.0-windows\projekta_darbs.pdb
