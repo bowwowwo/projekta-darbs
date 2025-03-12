@@ -2,6 +2,9 @@
 using MaterialSkin.Controls;
 using System;
 using System.Data.SQLite;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace projekta_darbs
 {
@@ -52,7 +55,8 @@ namespace projekta_darbs
                     {
                         con.Open();
                         string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
-
+                        string MD5parole = encrypt(textBox2.Text);
+                     
                         using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@Email", email);
@@ -72,6 +76,25 @@ namespace projekta_darbs
             {
                 MessageBox.Show("Nepareizi ievadīta parole vai e-pasts!");
             }
+        }
+        public string encrypt(string decrypted)
+        {
+            string hash = "pavasaris2025";
+            byte[] data = UTF8Encoding.UTF8.GetBytes(decrypted);
+            MD5 md5 = MD5.Create();
+            TripleDES tripDES = TripleDES.Create();
+            tripDES.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+            tripDES.Mode = CipherMode.ECB;
+
+            ICryptoTransform transform = tripDES.CreateEncryptor();
+            byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+
+            return Convert.ToBase64String(result);
+
+        }
+        public string decrypt(string encrypted)
+        {
+            return "";
         }
 
         private void label3_Click(object sender, EventArgs e) //"Neesi lietotājs?"
