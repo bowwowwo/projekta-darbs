@@ -28,7 +28,7 @@ namespace projekta_darbs
             email = textBox1.Text;
             password = textBox2.Text;
 
-            try
+            try // checks if entered info is correct /or usable
             {
                 if (String.IsNullOrEmpty(email))
                 {
@@ -38,13 +38,13 @@ namespace projekta_darbs
                 {
                     MessageBox.Show("Paroles ievades lauks ir tukšs!");
                 }
-                else if (!email.Contains("@"))
+                else if (!email.Contains("@gmail.com") || !email.Contains("@edu.riga.lv"))
                 {
                     MessageBox.Show("Nav derīgs e-pasts!");
                 }
                 else
                 {
-                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
                     string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
                     string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
 
@@ -77,7 +77,7 @@ namespace projekta_darbs
                 MessageBox.Show("Nepareizi ievadīta parole vai e-pasts!");
             }
         }
-        public string encrypt(string decrypted)
+        public string encrypt(string decrypted) // encrypts password
         {
             string hash = "pavasaris2025";
             byte[] data = UTF8Encoding.UTF8.GetBytes(decrypted);
@@ -92,7 +92,7 @@ namespace projekta_darbs
             return Convert.ToBase64String(result);
 
         }
-        public string decrypt(string encrypted)
+        public string decrypt(string encrypted)  // decrypts password
         {
             return "";
         }

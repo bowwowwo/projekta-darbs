@@ -80,6 +80,7 @@
             // 
             // materialLabel1
             // 
+            materialLabel1.Anchor = AnchorStyles.None;
             materialLabel1.AutoSize = true;
             materialLabel1.BackColor = SystemColors.ButtonFace;
             materialLabel1.Depth = 0;
@@ -94,6 +95,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ButtonFace;
             label3.Cursor = Cursors.Hand;
@@ -107,6 +109,7 @@
             // 
             // materialButton1
             // 
+            materialButton1.Anchor = AnchorStyles.None;
             materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             materialButton1.Cursor = Cursors.Hand;
             materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
@@ -128,6 +131,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ButtonFace;
             label4.Font = new Font("Roboto", 9F);
@@ -141,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(106, 156, 137);
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(440, 421);
             Controls.Add(label4);
             Controls.Add(materialButton1);
