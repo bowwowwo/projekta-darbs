@@ -38,7 +38,7 @@ namespace projekta_darbs
                 {
                     MessageBox.Show("Paroles ievades lauks ir tukšs!");
                 }
-                else if (!email.Contains("@gmail.com") || !email.Contains("@edu.riga.lv"))
+                else if (!email.Contains("@g")) 
                 {
                     MessageBox.Show("Nav derīgs e-pasts!");
                 }
@@ -55,12 +55,12 @@ namespace projekta_darbs
                     {
                         con.Open();
                         string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
-                        string MD5parole = encrypt(textBox2.Text);
+                        string hashparole = HashPassword(textBox2.Text);
                      
                         using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@Email", email);
-                            cmd.Parameters.AddWithValue("@Password", password);
+                            cmd.Parameters.AddWithValue("@Password", hashparole);
 
                             int count = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -77,20 +77,14 @@ namespace projekta_darbs
                 MessageBox.Show("Nepareizi ievadīta parole vai e-pasts!");
             }
         }
-        public string encrypt(string decrypted) // encrypts password
+        public static string HashPassword(string password)
         {
-            string hash = "pavasaris2025";
-            byte[] data = UTF8Encoding.UTF8.GetBytes(decrypted);
-            MD5 md5 = MD5.Create();
-            TripleDES tripDES = TripleDES.Create();
-            tripDES.Key = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-            tripDES.Mode = CipherMode.ECB;
-
-            ICryptoTransform transform = tripDES.CreateEncryptor();
-            byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
-
-            return Convert.ToBase64String(result);
-
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+                byte[] hashBytes = sha256.ComputeHash(bytes);
+                return Convert.ToBase64String(hashBytes);
+            }
         }
         public string decrypt(string encrypted)  // decrypts password
         {

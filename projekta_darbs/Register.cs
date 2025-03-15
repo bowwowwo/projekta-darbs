@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace projekta_darbs
 {
@@ -47,7 +49,7 @@ namespace projekta_darbs
                 {
                     MessageBox.Show("Paroles ievades lauks ir tukšs!");
                 }
-                else if (!new_email.Contains("@gmail.com") || !new_email.Contains("@edu.riga.lv"))
+                else if (!new_email.Contains("@"))
                 {
                     MessageBox.Show("Nav derīgs e-pasts!");
                 }
@@ -64,16 +66,17 @@ namespace projekta_darbs
                     {
                         con.Open();
                         string query = "INSERT INTO lietotajs (Vards, Parole, Epasts) VALUES (@Name, @Password, @Email)";
+                        string hashedpassword = HashPassword(textBox3.Text);
 
                         using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@Name", name);
-                            cmd.Parameters.AddWithValue("@Password", new_password);
+                            cmd.Parameters.AddWithValue("@Password", hashedpassword);
                             cmd.Parameters.AddWithValue("@Email", new_email);
 
-                            int count = Convert.ToInt32(cmd.ExecuteScalar());
+                            int rowsAffected = cmd.ExecuteNonQuery(); // Returns the number of rows inserted
 
-                            if (count > 0)
+                                if (rowsAffected > 0)
                                 MessageBox.Show("Veiksmīga pieteikšanās!"); //vajag atgriezties pie login
                                 
                             else
@@ -87,6 +90,16 @@ namespace projekta_darbs
             {
                 MessageBox.Show("Atgadījusies kļūda!");
             }
+
         }
-    }
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+                byte[] hashBytes = sha256.ComputeHash(bytes);
+                return Convert.ToBase64String(hashBytes);
+            }
+        }
+    } 
 }
