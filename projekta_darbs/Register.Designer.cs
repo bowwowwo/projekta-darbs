@@ -36,6 +36,7 @@
             label2 = new Label();
             label3 = new Label();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            label4 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -135,11 +136,25 @@
             materialButton1.UseVisualStyleBackColor = true;
             materialButton1.Click += materialButton1_Click;
             // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Roboto", 8F);
+            label4.ForeColor = Color.LightCoral;
+            label4.Location = new Point(84, 261);
+            label4.Name = "label4";
+            label4.Size = new Size(233, 26);
+            label4.TabIndex = 17;
+            label4.Text = "     Parolei jābūt vismaz 8 rakstzīmes garai\r\nun jāsatur vismaz 1 lielais burts un 1 simbols\r\n";
+            label4.Visible = false;
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(440, 421);
+            Controls.Add(label4);
             Controls.Add(materialButton1);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -164,5 +179,6 @@
         private Label label2;
         private Label label3;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private Label label4;
     }
 }

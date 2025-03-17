@@ -37,6 +37,7 @@ namespace projekta_darbs
             name = textBox1.Text;
             new_email = textBox2.Text;
             new_password = textBox3.Text;
+            label4.ForeColor = System.Drawing.Color.Red;
 
 
             try
@@ -52,6 +53,14 @@ namespace projekta_darbs
                 else if (!new_email.Contains("@"))
                 {
                     MessageBox.Show("Nav derīgs e-pasts!");
+                }
+                else if (new_password.Length < 8)
+                {
+                    label4.Show();
+                }
+                else if (new_password.Any(char.IsUpper))
+                {
+                    label4.Show();
                 }
                 else
                 {
@@ -94,7 +103,7 @@ namespace projekta_darbs
 
                                         if (result == DialogResult.OK)
                                         {
-                                            this.Hide();
+                                            this.Close();
                                             Login loginform = new Login();
                                             loginform.Show();
 
