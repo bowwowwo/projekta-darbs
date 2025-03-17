@@ -82,9 +82,9 @@ namespace projekta_darbs
 
                                 using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
                                 {
-                                    cmd.Parameters.AddWithValue("@Name", name);
-                                    cmd.Parameters.AddWithValue("@Password", hashedpassword);
-                                    cmd.Parameters.AddWithValue("@Email", new_email);
+                                    cmd2.Parameters.AddWithValue("@Name", name);
+                                    cmd2.Parameters.AddWithValue("@Password", hashedpassword);
+                                    cmd2.Parameters.AddWithValue("@Email", new_email);
 
                                     int rowsAffected = cmd2.ExecuteNonQuery(); // Returns the number of rows inserted
 
