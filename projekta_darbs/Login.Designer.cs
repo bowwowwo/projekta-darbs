@@ -43,10 +43,10 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ButtonFace;
-            label2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(100, 188);
             label2.Name = "label2";
-            label2.Size = new Size(80, 17);
+            label2.Size = new Size(84, 17);
             label2.TabIndex = 3;
             label2.Text = "Tava parole";
             // 
@@ -57,6 +57,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(240, 23);
             textBox2.TabIndex = 1;
+            textBox2.UseSystemPasswordChar = true;
             // 
             // textBox1
             // 
@@ -71,10 +72,10 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ButtonFace;
-            label1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(100, 134);
             label1.Name = "label1";
-            label1.Size = new Size(86, 17);
+            label1.Size = new Size(90, 17);
             label1.TabIndex = 4;
             label1.Text = "Tavs e-pasts";
             // 
@@ -99,10 +100,10 @@
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ButtonFace;
             label3.Cursor = Cursors.Hand;
-            label3.Font = new Font("Roboto", 9F);
+            label3.Font = new Font("Microsoft Sans Serif", 9F);
             label3.Location = new Point(100, 294);
             label3.Name = "label3";
-            label3.Size = new Size(89, 14);
+            label3.Size = new Size(91, 15);
             label3.TabIndex = 12;
             label3.Text = "Neesi lietotājs?";
             label3.Click += label3_Click;
@@ -134,10 +135,10 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ButtonFace;
-            label4.Font = new Font("Roboto", 9F);
+            label4.Font = new Font("Microsoft Sans Serif", 9F);
             label4.Location = new Point(100, 330);
             label4.Name = "label4";
-            label4.Size = new Size(153, 14);
+            label4.Size = new Size(153, 15);
             label4.TabIndex = 14;
             label4.Text = "Aizmirsi paroli vai e-pastu?";
             // 

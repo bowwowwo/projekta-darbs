@@ -65,26 +65,51 @@ namespace projekta_darbs
                     using (SQLiteConnection con = new SQLiteConnection(connectionString))
                     {
                         con.Open();
-                        string query = "INSERT INTO lietotajs (Vards, Parole, Epasts) VALUES (@Name, @Password, @Email)";
-                        string hashedpassword = HashPassword(textBox3.Text);
-
-                        using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                        string checkEmailQuery = "SELECT COUNT(*) FROM lietotajs WHERE Epasts = @Email";
+                        using (SQLiteCommand cmd = new SQLiteCommand(checkEmailQuery, con))
                         {
-                            cmd.Parameters.AddWithValue("@Name", name);
-                            cmd.Parameters.AddWithValue("@Password", hashedpassword);
                             cmd.Parameters.AddWithValue("@Email", new_email);
+                            int emailCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                            int rowsAffected = cmd.ExecuteNonQuery(); // Returns the number of rows inserted
-
-                                if (rowsAffected > 0)
-                                MessageBox.Show("Veiksmīga pieteikšanās!"); //vajag atgriezties pie login
-                                
+                            if (emailCount > 0)
+                            {
+                                MessageBox.Show("Epasts jau eksistē!");
+                            }
                             else
-                                MessageBox.Show("Nepareizs e-pasts vai parole!");
+                            {
+                                string query = "INSERT INTO lietotajs (Vards, Parole, Epasts) VALUES (@Name, @Password, @Email)";
+                                string hashedpassword = HashPassword(textBox3.Text);
+
+                                using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
+                                {
+                                    cmd.Parameters.AddWithValue("@Name", name);
+                                    cmd.Parameters.AddWithValue("@Password", hashedpassword);
+                                    cmd.Parameters.AddWithValue("@Email", new_email);
+
+                                    int rowsAffected = cmd2.ExecuteNonQuery(); // Returns the number of rows inserted
+
+                                    if (rowsAffected > 0)
+                                    {
+                                        DialogResult result = MessageBox.Show("Veiksmīga pieteikšanās!", "Pieteikšanās", MessageBoxButtons.OK);
+
+                                        if (result == DialogResult.OK)
+                                        {
+                                            this.Hide();
+                                            Login loginform = new Login();
+                                            loginform.Show();
+
+                                        }
+                                    }
+                                }
+
+
+
+
+                            }
                         }
+
                     }
                 }
-
             }
             catch (Exception ex)
             {
