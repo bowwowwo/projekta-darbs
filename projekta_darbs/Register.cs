@@ -91,7 +91,7 @@ namespace projekta_darbs
                                     if (rowsAffected > 0)
                                     {
                                         DialogResult result = MessageBox.Show("Veiksmīga pieteikšanās!", "Pieteikšanās", MessageBoxButtons.OK);
-                                        
+
                                         if (result == DialogResult.OK)
                                         {
                                             this.Hide();
@@ -126,5 +126,5 @@ namespace projekta_darbs
                 return Convert.ToBase64String(hashBytes);
             }
         }
-    } 
+    }
 }
