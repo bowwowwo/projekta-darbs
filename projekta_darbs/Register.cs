@@ -73,7 +73,7 @@ namespace projekta_darbs
 
                             if (emailCount > 0)
                             {
-                                MessageBox.Show("Epasts jau eksistē!");
+                                MessageBox.Show("E-pasts jau tiek lietots citā lietotājā!");
                             }
                             else
                             {
@@ -91,7 +91,7 @@ namespace projekta_darbs
                                     if (rowsAffected > 0)
                                     {
                                         DialogResult result = MessageBox.Show("Veiksmīga pieteikšanās!", "Pieteikšanās", MessageBoxButtons.OK);
-
+                                        
                                         if (result == DialogResult.OK)
                                         {
                                             this.Hide();
