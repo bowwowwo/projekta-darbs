@@ -58,7 +58,11 @@ namespace projekta_darbs
                 {
                     label4.Show();
                 }
-                else if (new_password.Any(char.IsUpper))
+                else if (!new_password.Any(char.IsUpper))
+                {
+                    label4.Show();
+                }
+                else if (!simboli(new_password))
                 {
                     label4.Show();
                 }
@@ -134,6 +138,16 @@ namespace projekta_darbs
                 byte[] hashBytes = sha256.ComputeHash(bytes);
                 return Convert.ToBase64String(hashBytes);
             }
+        }
+
+        static bool simboli(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetterOrDigit(c))
+                    return true;
+            }
+            return false;
         }
     }
 }

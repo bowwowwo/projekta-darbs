@@ -123,7 +123,7 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(220, 300);
+            materialButton1.Location = new Point(220, 311);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -142,7 +142,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Roboto", 8F);
             label4.ForeColor = Color.LightCoral;
-            label4.Location = new Point(84, 261);
+            label4.Location = new Point(84, 270);
             label4.Name = "label4";
             label4.Size = new Size(233, 26);
             label4.TabIndex = 17;
