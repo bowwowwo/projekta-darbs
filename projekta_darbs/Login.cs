@@ -114,5 +114,10 @@ namespace projekta_darbs
 
             this.Hide(); // * neaizver login tapec vajag pec tam atgriezties
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
