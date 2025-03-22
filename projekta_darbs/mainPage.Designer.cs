@@ -1,6 +1,6 @@
 ﻿namespace projekta_darbs
 {
-    partial class Atslegas
+    partial class mainPage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // Atslegas
+            // mainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "Atslegas";
+            Name = "mainPage";
             Text = "Atslegas";
             Load += Form1_Load;
             ResumeLayout(false);

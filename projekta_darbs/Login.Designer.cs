@@ -159,7 +159,6 @@
             DrawerBackgroundWithAccent = true;
             Name = "Login";
             Text = "Ielogoties";
-            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }

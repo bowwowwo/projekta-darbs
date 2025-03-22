@@ -14,10 +14,10 @@ namespace projekta_darbs
 {
 
     
-    public partial class Atslegas : MaterialForm
+    public partial class mainPage : MaterialForm
     {
     
-        public Atslegas()
+        public mainPage()
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;

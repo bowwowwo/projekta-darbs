@@ -86,7 +86,7 @@ namespace projekta_darbs
 
                             if (emailCount > 0)
                             {
-                                MessageBox.Show("E-pasts jau tiek lietots citā lietotājā!");
+                                MessageBox.Show("E-pasts jau ir reģistrēts!");
                             }
                             else
                             {

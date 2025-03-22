@@ -54,35 +54,51 @@ namespace projekta_darbs
                     {
                         con.Open();
 
-                        // Check if email exists in the database
-                        string checkEmailQuery = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email";
-                        using (SQLiteCommand cmd = new SQLiteCommand(checkEmailQuery, con))
+                        string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
+                        string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
+                        string hashparole = HashPassword(textBox2.Text);
+
+                        
+                        using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("@Email", email);
-                            int emailCount = Convert.ToInt32(cmd.ExecuteScalar());
+                            cmd.Parameters.AddWithValue("@Password", hashparole);
 
-                            if (emailCount > 0)
+                            int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            if (count > 0)
                             {
-                                MessageBox.Show("E-pasts jau eksistē!");
+
+                                using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
+                                {
+                                    cmd2.Parameters.AddWithValue("@Email", email);
+                                    cmd2.Parameters.AddWithValue("@Password", hashparole);
+
+                                    object result = cmd.ExecuteScalar();                                   
+
+                                    bool admin = result != null && Convert.ToBoolean(result);
+                                    //MessageBox.Show(Convert.ToString(admin));
+
+                                    if (admin == true){
+                                        adminPage ShowAdmin = new adminPage();
+                                        ShowAdmin.Show();
+
+                                        this.Hide();
+                                        this.Closed += (s, args) => Application.Exit();
+                                    }
+                                    else
+                                    {
+                                        mainPage ShowMain = new mainPage();
+                                        ShowMain.Show();
+
+                                        this.Hide();
+                                        this.Closed += (s, args) => Application.Exit();
+                                    }   
+                                }
                             }
                             else
                             {
-                                string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
-                                string hashparole = HashPassword(textBox2.Text);
-
-                                using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
-                                {
-                                    cmd.Parameters.AddWithValue("@Email", email);
-                                    cmd.Parameters.AddWithValue("@Password", hashparole);
-
-                                    int count = Convert.ToInt32(cmd2.ExecuteScalar());
-
-                                    if (count > 0)
-                                        MessageBox.Show("Veiksmīga pieteikšanās!");
-                                    else
-                                        MessageBox.Show("Nepareizs e-pasts vai parole!");
-
-                                }
+                                MessageBox.Show("Nepareizs e-pasts vai parole!");
                             }
                         }
                     }
@@ -112,12 +128,7 @@ namespace projekta_darbs
             Register ShowForm_newUserForm = new Register();
             ShowForm_newUserForm.Show();
 
-            this.Hide(); // * neaizver login tapec vajag pec tam atgriezties
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            this.Hide();
         }
     }
 }
