@@ -13,6 +13,8 @@ namespace projekta_darbs
     {
         private string email;
         private string password;
+        private bool admin = false;
+        private bool result;
 
         public Login()
         {
@@ -55,7 +57,7 @@ namespace projekta_darbs
                         con.Open();
 
                         string query = "SELECT COUNT(*) FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
-                        string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email AND Parole=@Password";
+                        string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email";
                         string hashparole = HashPassword(textBox2.Text);
 
                         
@@ -72,12 +74,11 @@ namespace projekta_darbs
                                 using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
                                 {
                                     cmd2.Parameters.AddWithValue("@Email", email);
-                                    cmd2.Parameters.AddWithValue("@Password", hashparole);
 
-                                    object result = cmd.ExecuteScalar();                                   
+                                    object result = cmd2.ExecuteScalar();
 
-                                    bool admin = result != null && Convert.ToBoolean(result);
-                                    //MessageBox.Show(Convert.ToString(admin));
+                                    bool admin = Convert.ToBoolean(result);
+
 
                                     if (admin == true){
                                         adminPage ShowAdmin = new adminPage();

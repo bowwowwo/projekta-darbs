@@ -22,6 +22,7 @@ namespace projekta_darbs
         private string new_password;
         private string new_email;
         private string name;
+        private string Loma = "false";
 
         public Register()
         {
@@ -90,7 +91,7 @@ namespace projekta_darbs
                             }
                             else
                             {
-                                string query = "INSERT INTO lietotajs (Vards, Parole, Epasts) VALUES (@Name, @Password, @Email)";
+                                string query = "INSERT INTO lietotajs (Vards, Parole, Epasts, Loma) VALUES (@Name, @Password, @Email, @Loma)";
                                 string hashedpassword = HashPassword(textBox3.Text);
 
                                 using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
@@ -98,6 +99,7 @@ namespace projekta_darbs
                                     cmd2.Parameters.AddWithValue("@Name", name);
                                     cmd2.Parameters.AddWithValue("@Password", hashedpassword);
                                     cmd2.Parameters.AddWithValue("@Email", new_email);
+                                    cmd2.Parameters.AddWithValue("@Loma", Loma);
 
                                     int rowsAffected = cmd2.ExecuteNonQuery(); // Returns the number of rows inserted
 
