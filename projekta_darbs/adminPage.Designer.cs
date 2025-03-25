@@ -46,7 +46,6 @@
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(358, 377);
             dataGridView2.TabIndex = 5;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // textBox1
             // 
@@ -54,7 +53,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 6;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -124,7 +122,6 @@
             Controls.Add(dataGridView2);
             Name = "adminPage";
             Text = "adminPage";
-            Load += adminPage_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
