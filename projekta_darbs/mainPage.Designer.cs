@@ -32,10 +32,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainPage));
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            dataGridView3 = new DataGridView();
             tabPage2 = new TabPage();
+            comboBox1 = new ComboBox();
+            button2 = new Button();
+            dataGridView2 = new DataGridView();
             tabPage3 = new TabPage();
+            comboBox2 = new ComboBox();
+            button1 = new Button();
+            dataGridView1 = new DataGridView();
             imageList1 = new ImageList(components);
+            button3 = new Button();
             materialTabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // materialTabControl1
@@ -56,35 +70,103 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(dataGridView3);
             tabPage1.ImageIndex = 0;
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(921, 459);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
+            tabPage1.Text = "Visas atslegas";
             tabPage1.Click += tabPage1_Click;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(299, 13);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.Size = new Size(323, 433);
+            dataGridView3.TabIndex = 1;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(comboBox1);
+            tabPage2.Controls.Add(button2);
+            tabPage2.Controls.Add(dataGridView2);
             tabPage2.ImageKey = "icons8-log-24.png";
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(921, 522);
+            tabPage2.Size = new Size(921, 459);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Atslegas noliktava";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(47, 113);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(712, 157);
+            button2.Name = "button2";
+            button2.Size = new Size(135, 81);
+            button2.TabIndex = 3;
+            button2.Text = "Atjaunot Datu Bazi";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(299, 13);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(323, 433);
+            dataGridView2.TabIndex = 1;
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(comboBox2);
+            tabPage3.Controls.Add(button1);
+            tabPage3.Controls.Add(dataGridView1);
             tabPage3.ImageKey = "icons8-file-explorer-32.png";
             tabPage3.Location = new Point(4, 39);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(921, 522);
+            tabPage3.Size = new Size(921, 459);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
+            tabPage3.Text = "Izdotas atslegas";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(47, 113);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(712, 157);
+            button1.Name = "button1";
+            button1.Size = new Size(135, 81);
+            button1.TabIndex = 4;
+            button1.Text = "Atjaunot Datu Bazi";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(299, 13);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(323, 433);
+            dataGridView1.TabIndex = 1;
             // 
             // imageList1
             // 
@@ -95,6 +177,15 @@
             imageList1.Images.SetKeyName(1, "icons8-log-24.png");
             imageList1.Images.SetKeyName(2, "icons8-file-explorer-32.png");
             imageList1.Images.SetKeyName(3, "icons8-admin-24.png");
+            // 
+            // button3
+            // 
+            button3.Location = new Point(47, 182);
+            button3.Name = "button3";
+            button3.Size = new Size(137, 31);
+            button3.TabIndex = 5;
+            button3.Text = "Izdot atslegu";
+            button3.UseVisualStyleBackColor = true;
             // 
             // mainPage
             // 
@@ -108,6 +199,12 @@
             Text = "Atslegas";
             Load += Form1_Load;
             materialTabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -118,5 +215,13 @@
         private TabPage tabPage2;
         private ImageList imageList1;
         private TabPage tabPage3;
+        private DataGridView dataGridView3;
+        private DataGridView dataGridView2;
+        private DataGridView dataGridView1;
+        private Button button2;
+        private Button button1;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Button button3;
     }
 }
