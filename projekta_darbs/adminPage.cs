@@ -13,15 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace projekta_darbs
 {
     public partial class adminPage : MaterialForm
     {
-        
-    
-
-
 
         public adminPage()
         {
@@ -32,56 +29,74 @@ namespace projekta_darbs
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepPurple800, Primary.DeepPurple600, Primary.DeepPurple400, Accent.Blue200, TextShade.WHITE);
-
-           
         }
-        string AtslegasID;
-        string AtslegasKabinets;
+
+        private string AtslegasID;
+        private string AtslegasKabinets;
 
 
-
-        private void button1_Click(object sender, EventArgs e)
-
+        private void materialButton1_Click(object sender, EventArgs e)
         {
-            AtslegasID = textBox1.Text;
-            AtslegasKabinets = textBox2.Text;
+            AtslegasID = materialTextBox1.Text;
+            AtslegasKabinets = materialTextBox2.Text;
 
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
-            string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
-            string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
-            string connectionString = @"data source =" + dbFilePath;
-            SQLiteConnection con = new SQLiteConnection(connectionString);
-            con.Open();
-            string query = "INSERT INTO Atslegas (AtslegasID, AtslegasKabinets) VALUES (@AtslegasID, @AtslegasKabinets)";
-            using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
+            try
             {
-                cmd2.Parameters.AddWithValue("@AtslegasID", AtslegasID);
-                cmd2.Parameters.AddWithValue("@AtslegasKabinets", AtslegasKabinets);
-                cmd2.ExecuteNonQuery();
+                if (String.IsNullOrEmpty(AtslegasID))
+                {
+                    MessageBox.Show("Ievadiet atslēgas ID!");
+                }
+                else if (String.IsNullOrEmpty(AtslegasKabinets))
+                {
+                    MessageBox.Show("Ievadiet atslēgas kabinetu!");
+                }
+                else
+                {
+                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
+                    string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
+                    string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
+                    string connectionString = @"data source =" + dbFilePath;
+                    SQLiteConnection con = new SQLiteConnection(connectionString);
+                    con.Open();
+                    string query = "INSERT INTO Atslegas (AtslegasID, AtslegasKabinets) VALUES (@AtslegasID, @AtslegasKabinets)";
+                    using (SQLiteCommand cmd2 = new SQLiteCommand(query, con))
+                    {
+                        cmd2.Parameters.AddWithValue("@AtslegasID", AtslegasID);
+                        cmd2.Parameters.AddWithValue("@AtslegasKabinets", AtslegasKabinets);
+                        cmd2.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Atslēga tika pievienota datubāzei!");
+                    con.Close();
+                }
             }
-            MessageBox.Show("pielikam atslegu");
-            con.Close();
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Atgadījusies kļūda!");
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void materialButton2_Click(object sender, EventArgs e)
         {
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
-            string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
-            string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
-            string connectionString = @"data source =" + dbFilePath;
-            SQLiteConnection con = new SQLiteConnection(connectionString);
-            con.Open();
-            string query = "SELECT * FROM Atslegas";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(query, con);
-            DataTable dt = new DataTable();
+            try
+            {
+                string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
+                string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
+                string connectionString = @"data source =" + dbFilePath;
+                SQLiteConnection con = new SQLiteConnection(connectionString);
+                con.Open();
+                string query = "SELECT * FROM Atslegas";
+                SQLiteDataAdapter da = new SQLiteDataAdapter(query, con);
+                DataTable dt = new DataTable();
 
-            da.Fill(dt);
-            dataGridView2.DataSource = dt;
-            con.Close();
-          
-
+                da.Fill(dt);
+                dataGridView2.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Atgadījusies kļūda!");
+            }
         }
     }
 }

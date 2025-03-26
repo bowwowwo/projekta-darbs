@@ -21,6 +21,10 @@ namespace projekta_darbs
 
     public partial class mainPage : MaterialForm
     {
+        private bool admin = false;
+        private object result;
+        private string email = Globals.userEmail;
+        private string name;
 
         public mainPage()
         {
@@ -39,21 +43,27 @@ namespace projekta_darbs
             SQLiteDataAdapter da = new SQLiteDataAdapter(query, con);
             DataTable dt = new DataTable();
 
+            string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email";
+
+            using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
+            {
+                MessageBox.Show(email);
+                cmd2.Parameters.AddWithValue("@Email", email);
+                object result = cmd2.ExecuteScalar();
+                bool admin = Convert.ToBoolean(result);
+                if (admin == true)
+                {
+                    //materialTabControl1.TabPages.Show(tabPage4);
+                }
+
+            }
+
             da.Fill(dt);
             dataGridView3.DataSource = dt;
             con.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-
-        {
-
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -74,12 +84,6 @@ namespace projekta_darbs
                     da.Fill(dt);
 
                     dataGridView1.DataSource = dt;
-
-
-
-
-
-
 
                 }
             }

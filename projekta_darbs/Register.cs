@@ -67,7 +67,7 @@ namespace projekta_darbs
                 {
                     label4.Show();
                 }
-                else if(textBox3.Text != textBox4.Text)
+                else if (textBox3.Text != textBox4.Text)
                 {
                     MessageBox.Show("Ievadītās paroles nav vienādas!");
                 }
@@ -154,6 +154,15 @@ namespace projekta_darbs
                     return true;
             }
             return false;
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            Login backToLogin = new Login();
+            backToLogin.Show();
+
+            this.Hide();
+            this.Closed += (s, args) => Application.Exit();
         }
     }
 }

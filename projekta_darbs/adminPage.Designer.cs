@@ -29,96 +29,204 @@
         private void InitializeComponent()
         {
             dataGridView2 = new DataGridView();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            label1 = new Label();
+            materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
+            label2 = new Label();
+            materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
+            label3 = new Label();
+            materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(245, 67);
+            dataGridView2.Location = new Point(305, 79);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(358, 377);
+            dataGridView2.Size = new Size(390, 365);
             dataGridView2.TabIndex = 5;
             // 
-            // textBox1
+            // materialButton1
             // 
-            textBox1.Location = new Point(6, 201);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 6;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.Font = new Font("Roboto Condensed", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(7, 187);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(162, 36);
+            materialButton1.TabIndex = 13;
+            materialButton1.Text = "Pievienot atslēgu";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
             // 
-            // textBox2
+            // materialButton2
             // 
-            textBox2.Location = new Point(139, 201);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 7;
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(417, 453);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(164, 36);
+            materialButton2.TabIndex = 14;
+            materialButton2.Text = "Atsvaidzināt lapu";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
             // 
-            // textBox3
+            // materialButton3
             // 
-            textBox3.Location = new Point(58, 421);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 8;
+            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton3.Depth = 0;
+            materialButton3.HighEmphasis = true;
+            materialButton3.Icon = null;
+            materialButton3.Location = new Point(6, 325);
+            materialButton3.Margin = new Padding(4, 6, 4, 6);
+            materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton3.Name = "materialButton3";
+            materialButton3.NoAccentTextColor = Color.Empty;
+            materialButton3.Size = new Size(150, 36);
+            materialButton3.TabIndex = 15;
+            materialButton3.Text = "Noņemt atslēgu";
+            materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton3.UseAccentColor = false;
+            materialButton3.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // materialTextBox1
             // 
-            textBox4.Location = new Point(58, 392);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
-            textBox4.Text = "Atslegas ID";
+            materialTextBox1.AnimateReadOnly = false;
+            materialTextBox1.BorderStyle = BorderStyle.None;
+            materialTextBox1.Depth = 0;
+            materialTextBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBox1.LeadingIcon = null;
+            materialTextBox1.Location = new Point(8, 117);
+            materialTextBox1.MaxLength = 50;
+            materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBox1.Multiline = false;
+            materialTextBox1.Name = "materialTextBox1";
+            materialTextBox1.Size = new Size(100, 50);
+            materialTextBox1.TabIndex = 16;
+            materialTextBox1.Text = "";
+            materialTextBox1.TrailingIcon = null;
             // 
-            // button1
+            // label1
             // 
-            button1.Location = new Point(83, 148);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 47);
-            button1.TabIndex = 10;
-            button1.Text = "pievieno atslegu";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label1.AutoSize = true;
+            label1.Location = new Point(26, 99);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 15);
+            label1.TabIndex = 17;
+            label1.Text = "Atslēgas ID";
             // 
-            // button2
+            // materialTextBox2
             // 
-            button2.ForeColor = Color.Coral;
-            button2.Location = new Point(83, 326);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 40);
-            button2.TabIndex = 11;
-            button2.Text = "nonem atslegu";
-            button2.UseVisualStyleBackColor = true;
+            materialTextBox2.AnimateReadOnly = false;
+            materialTextBox2.BorderStyle = BorderStyle.None;
+            materialTextBox2.Depth = 0;
+            materialTextBox2.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBox2.LeadingIcon = null;
+            materialTextBox2.Location = new Point(123, 117);
+            materialTextBox2.MaxLength = 50;
+            materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBox2.Multiline = false;
+            materialTextBox2.Name = "materialTextBox2";
+            materialTextBox2.Size = new Size(100, 50);
+            materialTextBox2.TabIndex = 18;
+            materialTextBox2.Text = "";
+            materialTextBox2.TrailingIcon = null;
             // 
-            // button3
+            // label2
             // 
-            button3.Location = new Point(609, 201);
-            button3.Name = "button3";
-            button3.Size = new Size(100, 47);
-            button3.TabIndex = 12;
-            button3.Text = "refresh db";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(123, 99);
+            label2.Name = "label2";
+            label2.Size = new Size(98, 15);
+            label2.TabIndex = 19;
+            label2.Text = "Atslēgas kabinets";
+            // 
+            // materialDivider1
+            // 
+            materialDivider1.BackColor = Color.FromArgb(30, 0, 0, 0);
+            materialDivider1.Depth = 0;
+            materialDivider1.Location = new Point(5, 232);
+            materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider1.Name = "materialDivider1";
+            materialDivider1.Size = new Size(259, 10);
+            materialDivider1.TabIndex = 20;
+            materialDivider1.Text = "materialDivider1";
+            // 
+            // materialTextBox3
+            // 
+            materialTextBox3.AnimateReadOnly = false;
+            materialTextBox3.BorderStyle = BorderStyle.None;
+            materialTextBox3.Depth = 0;
+            materialTextBox3.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBox3.LeadingIcon = null;
+            materialTextBox3.Location = new Point(8, 266);
+            materialTextBox3.MaxLength = 50;
+            materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBox3.Multiline = false;
+            materialTextBox3.Name = "materialTextBox3";
+            materialTextBox3.Size = new Size(100, 50);
+            materialTextBox3.TabIndex = 21;
+            materialTextBox3.Text = "";
+            materialTextBox3.TrailingIcon = null;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(26, 248);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 15);
+            label3.TabIndex = 22;
+            label3.Text = "Atslēgas ID";
+            // 
+            // materialDivider2
+            // 
+            materialDivider2.BackColor = Color.FromArgb(30, 0, 0, 0);
+            materialDivider2.Depth = 0;
+            materialDivider2.Location = new Point(6, 370);
+            materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider2.Name = "materialDivider2";
+            materialDivider2.Size = new Size(259, 10);
+            materialDivider2.TabIndex = 23;
+            materialDivider2.Text = "materialDivider2";
             // 
             // adminPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            ClientSize = new Size(991, 558);
+            Controls.Add(materialDivider2);
+            Controls.Add(label3);
+            Controls.Add(materialTextBox3);
+            Controls.Add(materialDivider1);
+            Controls.Add(label2);
+            Controls.Add(materialTextBox2);
+            Controls.Add(label1);
+            Controls.Add(materialTextBox1);
+            Controls.Add(materialButton3);
+            Controls.Add(materialButton2);
+            Controls.Add(materialButton1);
             Controls.Add(dataGridView2);
             Name = "adminPage";
             Text = "adminPage";
@@ -132,12 +240,16 @@
 
 
         private DataGridView dataGridView2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton materialButton3;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
+        private Label label1;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
+        private Label label2;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
+        private Label label3;
+        private MaterialSkin.Controls.MaterialDivider materialDivider2;
     }
 }

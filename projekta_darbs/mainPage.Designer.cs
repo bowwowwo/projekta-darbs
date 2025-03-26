@@ -34,6 +34,7 @@
             tabPage1 = new TabPage();
             dataGridView3 = new DataGridView();
             tabPage2 = new TabPage();
+            button3 = new Button();
             comboBox1 = new ComboBox();
             button2 = new Button();
             dataGridView2 = new DataGridView();
@@ -41,8 +42,8 @@
             comboBox2 = new ComboBox();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            tabPage4 = new TabPage();
             imageList1 = new ImageList(components);
-            button3 = new Button();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -57,6 +58,7 @@
             materialTabControl1.Controls.Add(tabPage1);
             materialTabControl1.Controls.Add(tabPage2);
             materialTabControl1.Controls.Add(tabPage3);
+            materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.ImageList = imageList1;
             materialTabControl1.Location = new Point(6, 67);
@@ -78,7 +80,6 @@
             tabPage1.Size = new Size(921, 459);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Visas atslegas";
-            tabPage1.Click += tabPage1_Click;
             // 
             // dataGridView3
             // 
@@ -102,6 +103,15 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Atslegas noliktava";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(47, 182);
+            button3.Name = "button3";
+            button3.Size = new Size(137, 31);
+            button3.TabIndex = 5;
+            button3.Text = "Izdot atslegu";
+            button3.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -168,6 +178,15 @@
             dataGridView1.Size = new Size(323, 433);
             dataGridView1.TabIndex = 1;
             // 
+            // tabPage4
+            // 
+            tabPage4.Location = new Point(4, 39);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(921, 459);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Admin access";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -177,15 +196,6 @@
             imageList1.Images.SetKeyName(1, "icons8-log-24.png");
             imageList1.Images.SetKeyName(2, "icons8-file-explorer-32.png");
             imageList1.Images.SetKeyName(3, "icons8-admin-24.png");
-            // 
-            // button3
-            // 
-            button3.Location = new Point(47, 182);
-            button3.Name = "button3";
-            button3.Size = new Size(137, 31);
-            button3.TabIndex = 5;
-            button3.Text = "Izdot atslegu";
-            button3.UseVisualStyleBackColor = true;
             // 
             // mainPage
             // 
@@ -197,7 +207,6 @@
             DrawerTabControl = materialTabControl1;
             Name = "mainPage";
             Text = "Atslegas";
-            Load += Form1_Load;
             materialTabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
@@ -223,5 +232,6 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private Button button3;
+        private TabPage tabPage4;
     }
 }

@@ -39,6 +39,7 @@
             label4 = new Label();
             textBox4 = new TextBox();
             label5 = new Label();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
             SuspendLayout();
             // 
             // textBox1
@@ -173,11 +174,33 @@
             label5.TabIndex = 19;
             label5.Text = "Atkārtojiet paroli";
             // 
+            // materialButton2
+            // 
+            materialButton2.Anchor = AnchorStyles.None;
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(17, 449);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(140, 36);
+            materialButton2.TabIndex = 20;
+            materialButton2.Text = "Doties atpakaļ";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(440, 494);
+            Controls.Add(materialButton2);
             Controls.Add(label5);
             Controls.Add(textBox4);
             Controls.Add(label4);
@@ -208,5 +231,6 @@
         private Label label4;
         private TextBox textBox4;
         private Label label5;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }
