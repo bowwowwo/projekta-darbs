@@ -42,7 +42,6 @@
             comboBox2 = new ComboBox();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            tabPage4 = new TabPage();
             imageList1 = new ImageList(components);
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -58,7 +57,6 @@
             materialTabControl1.Controls.Add(tabPage1);
             materialTabControl1.Controls.Add(tabPage2);
             materialTabControl1.Controls.Add(tabPage3);
-            materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.ImageList = imageList1;
             materialTabControl1.Location = new Point(6, 67);
@@ -106,9 +104,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(47, 182);
+            button3.Location = new Point(138, 357);
             button3.Name = "button3";
-            button3.Size = new Size(137, 31);
+            button3.Size = new Size(184, 31);
             button3.TabIndex = 5;
             button3.Text = "Izdot atslegu";
             button3.UseVisualStyleBackColor = true;
@@ -116,16 +114,16 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(47, 113);
+            comboBox1.Location = new Point(138, 302);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(184, 23);
             comboBox1.TabIndex = 4;
             // 
             // button2
             // 
-            button2.Location = new Point(712, 157);
+            button2.Location = new Point(399, 302);
             button2.Name = "button2";
-            button2.Size = new Size(135, 81);
+            button2.Size = new Size(148, 86);
             button2.TabIndex = 3;
             button2.Text = "Atjaunot Datu Bazi";
             button2.UseVisualStyleBackColor = true;
@@ -134,9 +132,9 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(299, 13);
+            dataGridView2.Location = new Point(138, 15);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(323, 433);
+            dataGridView2.Size = new Size(409, 269);
             dataGridView2.TabIndex = 1;
             // 
             // tabPage3
@@ -177,15 +175,6 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(323, 433);
             dataGridView1.TabIndex = 1;
-            // 
-            // tabPage4
-            // 
-            tabPage4.Location = new Point(4, 39);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(921, 459);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Admin access";
-            tabPage4.UseVisualStyleBackColor = true;
             // 
             // imageList1
             // 
@@ -232,6 +221,5 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private Button button3;
-        private TabPage tabPage4;
     }
 }
