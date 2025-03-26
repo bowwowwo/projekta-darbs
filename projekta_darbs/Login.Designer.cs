@@ -141,6 +141,7 @@
             label4.Size = new Size(153, 15);
             label4.TabIndex = 14;
             label4.Text = "Aizmirsi paroli vai e-pastu?";
+            label4.Visible = false;
             // 
             // Login
             // 
