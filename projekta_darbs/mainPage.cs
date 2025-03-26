@@ -13,10 +13,10 @@ using System.Windows.Forms;
 namespace projekta_darbs
 {
 
-    
+
     public partial class mainPage : MaterialForm
     {
-    
+
         public mainPage()
         {
             InitializeComponent();
@@ -27,6 +27,11 @@ namespace projekta_darbs
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
