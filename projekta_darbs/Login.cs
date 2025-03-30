@@ -7,12 +7,13 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace projekta_darbs
-{
-    public static class Globals
+/*    public static class Globals
     {
         public static String userEmail; // Modifiable
-    }
+    }*/
+namespace projekta_darbs
+{
+
 
     public partial class Login : MaterialForm
     {
@@ -39,7 +40,7 @@ namespace projekta_darbs
             string connectionString = @"data source =" + dbFilePath;
 
             email = textBox1.Text;
-            Globals.userEmail = email;
+            //Globals.userEmail = email;
             password = textBox2.Text;
 
             try // checks if entered info is correct /or usable
