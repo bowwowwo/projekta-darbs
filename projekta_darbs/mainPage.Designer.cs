@@ -41,8 +41,8 @@
             comboBox1 = new ComboBox();
             button2 = new Button();
             dataGridView2 = new DataGridView();
-            tabPage3 = new TabPage();
             imageList1 = new ImageList(components);
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -54,7 +54,6 @@
             // 
             materialTabControl1.Controls.Add(tabPage1);
             materialTabControl1.Controls.Add(tabPage2);
-            materialTabControl1.Controls.Add(tabPage3);
             materialTabControl1.Depth = 0;
             materialTabControl1.ImageList = imageList1;
             materialTabControl1.Location = new Point(6, 67);
@@ -68,21 +67,22 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(materialLabel1);
             tabPage1.Controls.Add(dataGridView3);
-            tabPage1.ImageIndex = 0;
+            tabPage1.ImageKey = "icons8-log-24.png";
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(921, 459);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Visas atslegas";
+            tabPage1.Text = "Atslēgu žurnāls";
             // 
             // dataGridView3
             // 
             dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(299, 13);
+            dataGridView3.Location = new Point(134, 39);
             dataGridView3.Name = "dataGridView3";
-            dataGridView3.Size = new Size(323, 433);
+            dataGridView3.Size = new Size(735, 414);
             dataGridView3.TabIndex = 1;
             // 
             // tabPage2
@@ -94,13 +94,13 @@
             tabPage2.Controls.Add(comboBox1);
             tabPage2.Controls.Add(button2);
             tabPage2.Controls.Add(dataGridView2);
-            tabPage2.ImageKey = "icons8-log-24.png";
+            tabPage2.ImageKey = "icons8-key-30.png";
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(921, 459);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "Atslegas noliktava";
+            tabPage2.Text = "Saņemt/nodot atslēgu";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // comboBox2
@@ -113,7 +113,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(126, 97);
+            button4.Location = new Point(126, 114);
             button4.Name = "button4";
             button4.Size = new Size(184, 31);
             button4.TabIndex = 7;
@@ -123,7 +123,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(424, 312);
+            button1.Location = new Point(381, 312);
             button1.Name = "button1";
             button1.Size = new Size(148, 86);
             button1.TabIndex = 6;
@@ -167,16 +167,6 @@
             dataGridView2.Size = new Size(409, 269);
             dataGridView2.TabIndex = 1;
             // 
-            // tabPage3
-            // 
-            tabPage3.ImageKey = "icons8-file-explorer-32.png";
-            tabPage3.Location = new Point(4, 39);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(921, 459);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Izdotas atslegas";
-            tabPage3.UseVisualStyleBackColor = true;
-            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -186,6 +176,18 @@
             imageList1.Images.SetKeyName(1, "icons8-log-24.png");
             imageList1.Images.SetKeyName(2, "icons8-file-explorer-32.png");
             imageList1.Images.SetKeyName(3, "icons8-admin-24.png");
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(483, 16);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(55, 19);
+            materialLabel1.TabIndex = 2;
+            materialLabel1.Text = "Žurnāls";
             // 
             // mainPage
             // 
@@ -199,6 +201,7 @@
             Text = "Atslegas";
             materialTabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
@@ -211,7 +214,6 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private ImageList imageList1;
-        private TabPage tabPage3;
         private DataGridView dataGridView3;
         private DataGridView dataGridView2;
         private Button button2;
@@ -220,5 +222,6 @@
         private ComboBox comboBox2;
         private Button button4;
         private Button button1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

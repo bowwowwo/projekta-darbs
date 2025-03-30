@@ -65,8 +65,8 @@ namespace projekta_darbs
 
         }
 
-        
-        
+
+
 
 
         private void PopulateComboBox()
@@ -222,10 +222,10 @@ namespace projekta_darbs
 
         }
 
-       
 
 
-     
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -298,7 +298,7 @@ namespace projekta_darbs
 
         }
 
-        
+
 
         private void button3_Click_2(object sender, EventArgs e)
         {
