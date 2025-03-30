@@ -23,7 +23,7 @@ namespace projekta_darbs
     {
         private bool admin = false;
         private object result;
-        private string email = Globals.userEmail;
+       // private string email = Globals.userEmail;
         private string name;
 
         public mainPage()
@@ -45,9 +45,9 @@ namespace projekta_darbs
 
             string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email";
 
-            using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
+           /* using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
             {
-                MessageBox.Show(email);
+                //MessageBox.Show(email);
                 cmd2.Parameters.AddWithValue("@Email", email);
                 object result = cmd2.ExecuteScalar();
                 bool admin = Convert.ToBoolean(result);
@@ -56,7 +56,7 @@ namespace projekta_darbs
                     //materialTabControl1.TabPages.Show(tabPage4);
                 }
 
-            }
+            }*/
 
             da.Fill(dt);
             dataGridView3.DataSource = dt;
