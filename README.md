@@ -10,6 +10,6 @@ Projekta darbs datorium - atslēgu izsniegšanas sistēma 🐠 🉑 :u5408:
 -  Atslegu izsniegsanas sistema
 -  Registracija datubazē
 ---
-*admin login*
+*admin login:*
 epasts: mango@epasts.lv
 parole: Mango12345%
