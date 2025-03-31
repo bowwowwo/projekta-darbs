@@ -35,7 +35,7 @@ namespace projekta_darbs
         private string AtslegasKabinets;
 
 
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void materialButton1_Click(object sender, EventArgs e) // pievienot atslēgu
         {
             AtslegasID = materialTextBox1.Text;
             AtslegasKabinets = materialTextBox2.Text;
@@ -52,7 +52,7 @@ namespace projekta_darbs
                 }
                 else
                 {
-                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
+                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // file path conn
                     string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
                     string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
                     string connectionString = @"data source =" + dbFilePath;
@@ -75,11 +75,11 @@ namespace projekta_darbs
             }
         }
 
-        private void materialButton2_Click(object sender, EventArgs e)
+        private void materialButton2_Click(object sender, EventArgs e) //atsvaidzināt lapu
         {
             try
             {
-                string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string exeDirectory = AppDomain.CurrentDomain.BaseDirectory; // file path conn
                 string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
                 string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
                 string connectionString = @"data source =" + dbFilePath;
@@ -92,6 +92,46 @@ namespace projekta_darbs
                 da.Fill(dt);
                 dataGridView2.DataSource = dt;
                 con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Atgadījusies kļūda!");
+            }
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e) //noņemt atslēgu
+        {
+            AtslegasID = materialTextBox3.Text;
+
+            try
+            {
+                if (String.IsNullOrEmpty(AtslegasID))
+                {
+                    MessageBox.Show("Ievadiet atslēgas ID!");
+                }
+                else
+                {
+                    string exeDirectory = AppDomain.CurrentDomain.BaseDirectory; // file path conn
+                    string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
+                    string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
+                    string connectionString = @"data source =" + dbFilePath;
+                    SQLiteConnection con = new SQLiteConnection(connectionString);
+                    con.Open();
+                    string queryRemove = "DELETE FROM Atslegas WHERE AtslegasID=@AtslegasID";
+                    string queryShift = "UPDATE Atslegas SET atslegasid = atslegasid - 1;";
+                    using (SQLiteCommand cmd3 = new SQLiteCommand(queryRemove, con))
+                    {
+                        cmd3.Parameters.AddWithValue("@AtslegasID", AtslegasID);
+                        cmd3.ExecuteNonQuery();
+                    }
+                    using (SQLiteCommand cmd3 = new SQLiteCommand(queryShift, con)) // atslegasID -1 lai paliek secigi
+                    {
+                        cmd3.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Atslēga tika noņemta no datubāzes!");
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {

@@ -40,11 +40,13 @@
             materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
             label3 = new Label();
             materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            materialButton4 = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView2
             // 
+            dataGridView2.Anchor = AnchorStyles.None;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(305, 79);
             dataGridView2.Name = "dataGridView2";
@@ -53,13 +55,14 @@
             // 
             // materialButton1
             // 
+            materialButton1.Anchor = AnchorStyles.None;
             materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton1.Depth = 0;
             materialButton1.Font = new Font("Roboto Condensed", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(7, 187);
+            materialButton1.Location = new Point(55, 187);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -74,6 +77,7 @@
             // 
             // materialButton2
             // 
+            materialButton2.Anchor = AnchorStyles.None;
             materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton2.Depth = 0;
@@ -94,12 +98,13 @@
             // 
             // materialButton3
             // 
+            materialButton3.Anchor = AnchorStyles.None;
             materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             materialButton3.Depth = 0;
             materialButton3.HighEmphasis = true;
             materialButton3.Icon = null;
-            materialButton3.Location = new Point(6, 325);
+            materialButton3.Location = new Point(58, 342);
             materialButton3.Margin = new Padding(4, 6, 4, 6);
             materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton3.Name = "materialButton3";
@@ -110,15 +115,17 @@
             materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton3.UseAccentColor = false;
             materialButton3.UseVisualStyleBackColor = true;
+            materialButton3.Click += materialButton3_Click;
             // 
             // materialTextBox1
             // 
+            materialTextBox1.Anchor = AnchorStyles.None;
             materialTextBox1.AnimateReadOnly = false;
             materialTextBox1.BorderStyle = BorderStyle.None;
             materialTextBox1.Depth = 0;
             materialTextBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox1.LeadingIcon = null;
-            materialTextBox1.Location = new Point(8, 117);
+            materialTextBox1.Location = new Point(20, 117);
             materialTextBox1.MaxLength = 50;
             materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox1.Multiline = false;
@@ -130,8 +137,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(26, 99);
+            label1.Location = new Point(43, 99);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
             label1.TabIndex = 17;
@@ -139,12 +147,13 @@
             // 
             // materialTextBox2
             // 
+            materialTextBox2.Anchor = AnchorStyles.None;
             materialTextBox2.AnimateReadOnly = false;
             materialTextBox2.BorderStyle = BorderStyle.None;
             materialTextBox2.Depth = 0;
             materialTextBox2.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox2.LeadingIcon = null;
-            materialTextBox2.Location = new Point(123, 117);
+            materialTextBox2.Location = new Point(150, 117);
             materialTextBox2.MaxLength = 50;
             materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox2.Multiline = false;
@@ -156,8 +165,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(123, 99);
+            label2.Location = new Point(150, 99);
             label2.Name = "label2";
             label2.Size = new Size(98, 15);
             label2.TabIndex = 19;
@@ -165,6 +175,7 @@
             // 
             // materialDivider1
             // 
+            materialDivider1.Anchor = AnchorStyles.None;
             materialDivider1.BackColor = Color.FromArgb(30, 0, 0, 0);
             materialDivider1.Depth = 0;
             materialDivider1.Location = new Point(5, 232);
@@ -176,12 +187,13 @@
             // 
             // materialTextBox3
             // 
+            materialTextBox3.Anchor = AnchorStyles.None;
             materialTextBox3.AnimateReadOnly = false;
             materialTextBox3.BorderStyle = BorderStyle.None;
             materialTextBox3.Depth = 0;
             materialTextBox3.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox3.LeadingIcon = null;
-            materialTextBox3.Location = new Point(8, 266);
+            materialTextBox3.Location = new Point(81, 283);
             materialTextBox3.MaxLength = 50;
             materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox3.Multiline = false;
@@ -193,8 +205,9 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(26, 248);
+            label3.Location = new Point(106, 265);
             label3.Name = "label3";
             label3.Size = new Size(65, 15);
             label3.TabIndex = 22;
@@ -202,20 +215,42 @@
             // 
             // materialDivider2
             // 
+            materialDivider2.Anchor = AnchorStyles.None;
             materialDivider2.BackColor = Color.FromArgb(30, 0, 0, 0);
             materialDivider2.Depth = 0;
-            materialDivider2.Location = new Point(6, 370);
+            materialDivider2.Location = new Point(8, 387);
             materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
             materialDivider2.Name = "materialDivider2";
             materialDivider2.Size = new Size(259, 10);
             materialDivider2.TabIndex = 23;
             materialDivider2.Text = "materialDivider2";
             // 
+            // materialButton4
+            // 
+            materialButton4.Anchor = AnchorStyles.None;
+            materialButton4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton4.Depth = 0;
+            materialButton4.HighEmphasis = true;
+            materialButton4.Icon = null;
+            materialButton4.Location = new Point(739, 503);
+            materialButton4.Margin = new Padding(4, 6, 4, 6);
+            materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton4.Name = "materialButton4";
+            materialButton4.NoAccentTextColor = Color.Empty;
+            materialButton4.Size = new Size(236, 36);
+            materialButton4.TabIndex = 24;
+            materialButton4.Text = "Doties uz saņemšanas lapu";
+            materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton4.UseAccentColor = false;
+            materialButton4.UseVisualStyleBackColor = true;
+            // 
             // adminPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(991, 558);
+            Controls.Add(materialButton4);
             Controls.Add(materialDivider2);
             Controls.Add(label3);
             Controls.Add(materialTextBox3);
@@ -251,5 +286,6 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
         private Label label3;
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
+        private MaterialSkin.Controls.MaterialButton materialButton4;
     }
 }
