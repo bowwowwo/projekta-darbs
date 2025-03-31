@@ -235,14 +235,15 @@ namespace projekta_darbs
 
                     // ieliek izdotajas atslegas values
                     string insertQuery = @"INSERT INTO IzdotasAtslegas 
-                                (AtslegasID, atslegasKabinets) 
+                                (AtslegasID, atslegasKabinets, LietotajsVards) 
                                 VALUES 
-                                (@atslegasID, @kabinets)";
+                                (@atslegasID, @kabinets, @name)";
 
                     using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, connection))
                     {
                         insertCmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
                         insertCmd.Parameters.AddWithValue("@kabinets", kabinets);
+                        insertCmd.Parameters.AddWithValue("@name", name);
 
                         int rowsAffected = insertCmd.ExecuteNonQuery();
 
@@ -256,6 +257,7 @@ namespace projekta_darbs
                             PopulateComboBox2();
                         }
                     }
+                    
 
                     string ieraksts = $"{DateTime.Now}: {name} paņēma atslēgu {logKabinets}. kabinetam.{Environment.NewLine}";
 
@@ -322,6 +324,7 @@ namespace projekta_darbs
                 return;
             }
 
+          
             string selectedAtslegasID = comboBox2.SelectedItem.ToString();
             string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
@@ -347,6 +350,20 @@ namespace projekta_darbs
                     if (keyCount == 0)
                     {
                         MessageBox.Show("Šī atslēga nav izdota!");
+                        return;
+                    }
+
+                    string namequery = "SELECT COUNT(*) FROM IzdotasAtslegas WHERE LietotajsVards = @name";
+                    int varducount;
+                    using (SQLiteCommand checkname = new SQLiteCommand(namequery, connection))
+                    {
+                        checkname.Parameters.AddWithValue("@name", name);
+                        varducount = Convert.ToInt32(checkname.ExecuteScalar());
+                    }
+                    if (varducount == 0)
+                    {
+                        MessageBox.Show("Jūs šo atslēgu nesaņēmāt!");
+                        comboBox2.SelectedIndex = -1;
                         return;
                     }
 
