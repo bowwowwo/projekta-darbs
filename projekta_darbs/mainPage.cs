@@ -61,12 +61,26 @@ namespace projekta_darbs
                 }
             }
 
-            materialLabel2.Text = $"Ielogojies, kā {name}!";
+            materialLabel2.Text = $"Esat ielogojies, kā {name}!";
 
             if (Global.g_admin == true)
             {
                 materialButton1.Show();
             }
+
+            textBox1.Clear(); //fetches previous logs
+            using (SQLiteCommand cmd = new SQLiteCommand("SELECT ieraksts FROM zurnals", con))
+            {
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        textBox1.AppendText(reader["ieraksts"].ToString());
+                    }
+                }
+            }
+            
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e) //make it close
@@ -242,8 +256,22 @@ namespace projekta_darbs
                             PopulateComboBox2();
                         }
                     }
+
+                    string ieraksts = $"{DateTime.Now}: {name} paņēma atslēgu {logKabinets}. kabinetam.{Environment.NewLine}";
+
+                    textBox1.AppendText(ieraksts);
+
+                    string writeQuery = "INSERT INTO zurnals (ieraksts) VALUES (@ieraksts)";
+                    using (SQLiteCommand cmd4 = new SQLiteCommand(writeQuery, connection))
+                    {
+                        cmd4.Parameters.AddWithValue("@ieraksts", ieraksts);
+
+                        cmd4.ExecuteNonQuery();
+                    }
+                    
                 }
-                textBox1.AppendText($"{DateTime.Now}: {name} paņēma atslēgu {logKabinets}. kabinetam.{Environment.NewLine}");
+                
+                
             }
             catch (Exception ex)
             {
@@ -322,10 +350,14 @@ namespace projekta_darbs
                         return;
                     }
 
+                   
+
                     //pievieno atslegas izdosanu log
                     string selectQuery = "SELECT AtslegasKabinets FROM IzdotasAtslegas WHERE AtslegasID = @atslegasID";
                     using (SQLiteCommand cmd = new SQLiteCommand(selectQuery, connection))
                     {
+
+
                         cmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
                         var result = cmd.ExecuteScalar();
                         if (result != null)
@@ -333,7 +365,18 @@ namespace projekta_darbs
                             logKabinets = result.ToString();
 
                         }
-                        textBox1.AppendText($"{DateTime.Now}: {name} nodeva atslēgu {logKabinets}. kabinetam.{Environment.NewLine}");
+                        string ieraksts = $"{DateTime.Now}: {name} nodeva atslēgu {logKabinets}. kabinetam.{Environment.NewLine}";
+
+                        textBox1.AppendText(ieraksts);
+
+                        string writeQuery = "INSERT INTO zurnals (ieraksts) VALUES (@ieraksts)";
+                        using (SQLiteCommand cmd4 = new SQLiteCommand(writeQuery, connection))
+                        {
+                            cmd4.Parameters.AddWithValue("@ieraksts", ieraksts);
+
+                            cmd4.ExecuteNonQuery();
+                        }
+
                     }
 
                     // Nonem atslegu no IzdotasAtslegas
