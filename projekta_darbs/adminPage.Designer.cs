@@ -244,6 +244,7 @@
             materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton4.UseAccentColor = false;
             materialButton4.UseVisualStyleBackColor = true;
+            materialButton4.Click += materialButton4_Click;
             // 
             // adminPage
             // 

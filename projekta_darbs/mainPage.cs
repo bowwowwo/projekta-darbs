@@ -65,9 +65,11 @@ namespace projekta_darbs
 
         }
 
-
-
-
+        protected override void OnFormClosing(FormClosingEventArgs e) //make it close
+        {
+            e.Cancel = false;
+            base.OnFormClosing(e);
+        }
 
         private void PopulateComboBox()
         {
@@ -179,10 +181,6 @@ namespace projekta_darbs
 
         }
 
-
-
-
-
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -221,11 +219,6 @@ namespace projekta_darbs
 
 
         }
-
-
-
-
-
 
         private void button4_Click(object sender, EventArgs e)
         {

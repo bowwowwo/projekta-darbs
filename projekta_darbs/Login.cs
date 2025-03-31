@@ -31,6 +31,12 @@ namespace projekta_darbs
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepPurple800, Primary.DeepPurple600, Primary.DeepPurple400, Accent.Blue200, TextShade.WHITE);
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e) //make it close
+        {
+            e.Cancel = false;
+            base.OnFormClosing(e);
+        }
+
         private void materialButton1_Click(object sender, EventArgs e)
         {
             string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login

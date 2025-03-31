@@ -34,6 +34,12 @@ namespace projekta_darbs
         private string AtslegasID;
         private string AtslegasKabinets;
 
+        protected override void OnFormClosing(FormClosingEventArgs e) //make it close
+        {
+            e.Cancel = false;
+            base.OnFormClosing(e);
+        }
+
 
         private void materialButton1_Click(object sender, EventArgs e) // pievienot atslēgu
         {
@@ -137,6 +143,11 @@ namespace projekta_darbs
             {
                 MessageBox.Show("Atgadījusies kļūda!");
             }
+        }
+
+        private void materialButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
