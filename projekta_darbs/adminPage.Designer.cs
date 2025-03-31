@@ -265,7 +265,7 @@
             Controls.Add(materialButton1);
             Controls.Add(dataGridView2);
             Name = "adminPage";
-            Text = "adminPage";
+            Text = "Admin dashboard";
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();

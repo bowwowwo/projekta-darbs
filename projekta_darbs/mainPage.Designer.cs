@@ -245,7 +245,7 @@
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = materialTabControl1;
             Name = "mainPage";
-            Text = "Atslegas";
+            Text = "Atslēgas";
             materialTabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
