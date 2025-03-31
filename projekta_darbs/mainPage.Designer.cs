@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainPage));
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
             textBox1 = new TextBox();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -67,6 +68,7 @@
             // tabPage1
             // 
             tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(materialButton1);
             tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(materialLabel2);
             tabPage1.Controls.Add(materialLabel1);
@@ -77,6 +79,27 @@
             tabPage1.Size = new Size(921, 459);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Atslēgu žurnāls";
+            // 
+            // materialButton1
+            // 
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(728, -1);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(186, 36);
+            materialButton1.TabIndex = 6;
+            materialButton1.Text = "Doties uz admin page";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Visible = false;
+            materialButton1.Click += materialButton1_Click;
             // 
             // textBox1
             // 
@@ -247,5 +270,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private TextBox textBox1;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

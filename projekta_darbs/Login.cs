@@ -20,6 +20,7 @@ namespace projekta_darbs
         private bool admin = false;
         private bool result;
 
+
         public Login()
         {
             InitializeComponent();
@@ -90,6 +91,7 @@ namespace projekta_darbs
                                     object result = cmd2.ExecuteScalar();
 
                                     bool admin = Convert.ToBoolean(result);
+                                    Global.g_admin = admin;
 
 
                                     if (admin == true){
@@ -149,5 +151,6 @@ namespace projekta_darbs
 public static class Global
 { // Modifiable
     public static String g_email;
+    public static bool g_admin;
 
 }

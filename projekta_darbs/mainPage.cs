@@ -62,6 +62,11 @@ namespace projekta_darbs
             }
 
             materialLabel2.Text = $"Ielogojies, kā {name}!";
+
+            if (Global.g_admin == true)
+            {
+                materialButton1.Show();
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e) //make it close
@@ -323,7 +328,6 @@ namespace projekta_darbs
                     {
                         cmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
                         var result = cmd.ExecuteScalar();
-                        MessageBox.Show(result.ToString());
                         if (result != null)
                         {
                             logKabinets = result.ToString();
@@ -352,7 +356,7 @@ namespace projekta_darbs
                         }
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -361,5 +365,13 @@ namespace projekta_darbs
 
         }
 
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            adminPage ShowAdmin = new adminPage();
+            ShowAdmin.Show();
+
+            this.Hide();
+            this.Closed += (s, args) => Application.Exit();
+        }
     }
 }
