@@ -14,6 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing.Text;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 
 namespace projekta_darbs
 {
@@ -23,8 +24,8 @@ namespace projekta_darbs
     {
         private bool admin = false;
         private object result;
-        // private string email = Globals.userEmail;
-        private string name;
+        private string email = Global.g_email;
+        string name;
 
         public mainPage()
         {
@@ -37,6 +38,8 @@ namespace projekta_darbs
             string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
             string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
             string connectionString = @"data source =" + dbFilePath;
+
+
             SQLiteConnection con = new SQLiteConnection(connectionString);
             con.Open();
             string query = "SELECT * FROM Atslegas";
@@ -44,25 +47,21 @@ namespace projekta_darbs
             DataTable dt = new DataTable();
             PopulateComboBox();
             PopulateComboBox2();
-
-            string adminQuery = "SELECT Loma FROM lietotajs WHERE Epasts=@Email";
             con.Close();
 
-            /* using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
+            con.Open();
+            string nameQuery = "SELECT Vards FROM lietotajs WHERE Epasts=@Email";
+            using (SQLiteCommand cmd = new SQLiteCommand(nameQuery, con))
+            {
+                cmd.Parameters.AddWithValue("@Email", email);
+                var result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    name = result.ToString();
+                }
+            }
 
-             using (SQLiteCommand cmd2 = new SQLiteCommand(adminQuery, con))
-             {
-                 //MessageBox.Show(email);
-                 cmd2.Parameters.AddWithValue("@Email", email);
-                 object result = cmd2.ExecuteScalar();
-                 bool admin = Convert.ToBoolean(result);
-                 if (admin == true)
-                 {
-                     //materialTabControl1.TabPages.Show(tabPage4);
-                 }
-
-             }*/
-
+            materialLabel2.Text = $"Ielogojies, kā {name}!";
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e) //make it close
@@ -71,7 +70,7 @@ namespace projekta_darbs
             base.OnFormClosing(e);
         }
 
-        private void PopulateComboBox()
+        private void PopulateComboBox() // aizpilda data combo box ar atslegu info
         {
 
             comboBox1.Items.Clear();
@@ -106,11 +105,11 @@ namespace projekta_darbs
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
-        private void PopulateComboBox2()
+        private void PopulateComboBox2() // aizpilda otro combo box ar info no atslēgām
         {
 
             comboBox2.Items.Clear();
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql for login
+            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;    // sql file path conn
             string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
             string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
             string connectionString = @"data source =" + dbFilePath;
@@ -148,7 +147,7 @@ namespace projekta_darbs
             PopulateComboBox2();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)  //izdotās atslēgas
 
         {
             string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -170,8 +169,6 @@ namespace projekta_darbs
                     dataGridView2.DataSource = dt;
                     con.Close();
 
-
-
                 }
             }
             catch (Exception ex)
@@ -181,12 +178,75 @@ namespace projekta_darbs
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // saņemt atslēgu
         {
 
+            string logKabinets;
+
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Lūdzu izvēlies atslēgu!");
+                return;
+            }
+
+            string selectedAtslegasID = comboBox1.SelectedItem.ToString();
+            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
+            string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
+            string connectionString = @"data source =" + dbFilePath;
+
+
+            try
+            {
+
+                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // dabu Atslegas Kabinetu
+                    string kabinets = "";
+                    string getKabinetsQuery = "SELECT AtslegasKabinets FROM Atslegas WHERE AtslegasID = @id";
+
+                    using (SQLiteCommand getCmd = new SQLiteCommand(getKabinetsQuery, connection))
+                    {
+                        getCmd.Parameters.AddWithValue("@id", selectedAtslegasID);
+                        kabinets = getCmd.ExecuteScalar()?.ToString() ?? "";
+                        logKabinets = kabinets;
+                    }
+
+                    // ieliek izdotajas atslegas values
+                    string insertQuery = @"INSERT INTO IzdotasAtslegas 
+                                (AtslegasID, atslegasKabinets) 
+                                VALUES 
+                                (@atslegasID, @kabinets)";
+
+                    using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, connection))
+                    {
+                        insertCmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
+                        insertCmd.Parameters.AddWithValue("@kabinets", kabinets);
+
+                        int rowsAffected = insertCmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Atslēga izdota!");
+                            //tukso combobox
+                            comboBox1.SelectedIndex = -1;
+                            //atjauno combo boxes
+                            PopulateComboBox();
+                            PopulateComboBox2();
+                        }
+                    }
+                }
+                textBox1.AppendText($"{DateTime.Now}: {name} paņēma atslēgu {logKabinets}. kabinetam.{Environment.NewLine}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kļūda : " + ex.Message);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //atslēgas noliktavā
 
         {
             string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -208,8 +268,6 @@ namespace projekta_darbs
                     dataGridView2.DataSource = dt;
                     con.Close();
 
-
-
                 }
             }
             catch (Exception ex)
@@ -220,8 +278,11 @@ namespace projekta_darbs
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //nodot atslēgu
         {
+
+            string logKabinets = "";
+
             if (comboBox2.SelectedItem == null)
             {
                 MessageBox.Show("Izvēlies atslēgu, ko saņemt!");
@@ -256,6 +317,21 @@ namespace projekta_darbs
                         return;
                     }
 
+                    //pievieno atslegas izdosanu log
+                    string selectQuery = "SELECT AtslegasKabinets FROM IzdotasAtslegas WHERE AtslegasID = @atslegasID";
+                    using (SQLiteCommand cmd = new SQLiteCommand(selectQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
+                        var result = cmd.ExecuteScalar();
+                        MessageBox.Show(result.ToString());
+                        if (result != null)
+                        {
+                            logKabinets = result.ToString();
+
+                        }
+                        textBox1.AppendText($"{DateTime.Now}: {name} nodeva atslēgu {logKabinets}. kabinetam.{Environment.NewLine}");
+                    }
+
                     // Nonem atslegu no IzdotasAtslegas
                     string deleteQuery = "DELETE FROM IzdotasAtslegas WHERE AtslegasID = @atslegasID";
 
@@ -276,6 +352,7 @@ namespace projekta_darbs
                         }
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -284,77 +361,5 @@ namespace projekta_darbs
 
         }
 
-
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void button3_Click_2(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Lūdzu izvēlies atslēgu!");
-                return;
-            }
-
-            string selectedAtslegasID = comboBox1.SelectedItem.ToString();
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectRootDirectory = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\..\"));
-            string dbFilePath = Path.Combine(projectRootDirectory, "db", "prog2atslgisnsys.db");
-            string connectionString = @"data source =" + dbFilePath;
-
-
-            try
-            {
-
-                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // dabu Atslegas Kabinetu
-                    string kabinets = "";
-                    string getKabinetsQuery = "SELECT AtslegasKabinets FROM Atslegas WHERE AtslegasID = @id";
-
-                    using (SQLiteCommand getCmd = new SQLiteCommand(getKabinetsQuery, connection))
-                    {
-                        getCmd.Parameters.AddWithValue("@id", selectedAtslegasID);
-                        kabinets = getCmd.ExecuteScalar()?.ToString() ?? "";
-                    }
-
-                    // ieliek izdotajas atslegas values
-                    string insertQuery = @"INSERT INTO IzdotasAtslegas 
-                                (AtslegasID, atslegasKabinets) 
-                                VALUES 
-                                (@atslegasID, @kabinets)";
-
-                    using (SQLiteCommand insertCmd = new SQLiteCommand(insertQuery, connection))
-                    {
-                        insertCmd.Parameters.AddWithValue("@atslegasID", selectedAtslegasID);
-                        insertCmd.Parameters.AddWithValue("@kabinets", kabinets);
-
-                        int rowsAffected = insertCmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Atslēga izdota!");
-                            //tukso combobox
-                            comboBox1.SelectedIndex = -1;
-                            //atjauno combo boxes
-                            PopulateComboBox();
-                            PopulateComboBox2();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Kļūda : " + ex.Message);
-            }
-
-        }
     }
 }

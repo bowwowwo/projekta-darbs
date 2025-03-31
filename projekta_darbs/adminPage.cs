@@ -147,7 +147,11 @@ namespace projekta_darbs
 
         private void materialButton4_Click(object sender, EventArgs e)
         {
+            mainPage ShowMain = new mainPage();
+            ShowMain.Show();
 
+            this.Hide();
+            this.Closed += (s, args) => Application.Exit();
         }
     }
 }

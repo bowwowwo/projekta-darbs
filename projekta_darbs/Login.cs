@@ -5,12 +5,10 @@ using System.Data.SQLite;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 
-/*    public static class Globals
-    {
-        public static String userEmail; // Modifiable
-    }*/
+
 namespace projekta_darbs
 {
 
@@ -46,6 +44,7 @@ namespace projekta_darbs
             string connectionString = @"data source =" + dbFilePath;
 
             email = textBox1.Text;
+            Global.g_email = email;
             //Globals.userEmail = email;
             password = textBox2.Text;
 
@@ -145,4 +144,10 @@ namespace projekta_darbs
             this.Hide();
         }
     }
+}
+
+public static class Global
+{ // Modifiable
+    public static String g_email;
+
 }
