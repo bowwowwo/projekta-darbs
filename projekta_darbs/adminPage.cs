@@ -123,15 +123,13 @@ namespace projekta_darbs
                     string connectionString = @"data source =" + dbFilePath;
                     SQLiteConnection con = new SQLiteConnection(connectionString);
                     con.Open();
-                    string queryRemove = "DELETE FROM Atslegas WHERE AtslegasID=@AtslegasID";
-                    string queryShift = "UPDATE Atslegas SET atslegasid = atslegasid - 1;";
+                    string queryRemove =  @"DELETE FROM Atslegas WHERE AtslegasID = 3;
+                                            UPDATE Atslegas
+                                            SET AtslegasID = AtslegasID - 1
+                                            WHERE AtslegasID > 3;";
                     using (SQLiteCommand cmd3 = new SQLiteCommand(queryRemove, con))
                     {
                         cmd3.Parameters.AddWithValue("@AtslegasID", AtslegasID);
-                        cmd3.ExecuteNonQuery();
-                    }
-                    using (SQLiteCommand cmd3 = new SQLiteCommand(queryShift, con)) // atslegasID -1 lai paliek secigi
-                    {
                         cmd3.ExecuteNonQuery();
                     }
 

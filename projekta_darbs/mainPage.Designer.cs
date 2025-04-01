@@ -45,6 +45,8 @@
             button2 = new Button();
             dataGridView2 = new DataGridView();
             imageList1 = new ImageList(components);
+            label1 = new Label();
+            label2 = new Label();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -139,6 +141,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label2);
+            tabPage2.Controls.Add(label1);
             tabPage2.Controls.Add(comboBox2);
             tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(button1);
@@ -236,6 +240,24 @@
             imageList1.Images.SetKeyName(2, "icons8-file-explorer-32.png");
             imageList1.Images.SetKeyName(3, "icons8-admin-24.png");
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(135, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Atslēgas ID";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(135, 144);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Atslēgas ID";
+            // 
             // mainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -250,6 +272,7 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
@@ -271,5 +294,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private TextBox textBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private Label label2;
+        private Label label1;
     }
 }
