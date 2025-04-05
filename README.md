@@ -1,6 +1,6 @@
 # projekta-darbs
-#Grupas dalībnieki:
-##Toms Gerbaševskis, Arnolds Bērziņš, Edgars Rubenis
+Grupas dalībnieki:
+Toms Gerbaševskis, Arnolds Bērziņš, Edgars Rubenis
 ---
 
 Projekta darbs datorium - atslēgu izsniegšanas sistēma 🐠 🉑 :u5408:
